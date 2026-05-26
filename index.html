@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CAPASS – Casa de Apoio Pastor Antonio Silva Santana. Apoio à pessoa com deficiência e neurodivergentes em Ribeirão Preto e região.">
+    <title>Rede CAPASS – Casa de Apoio Pastor Antonio Silva Santana</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --azul:        #1A8A9A;
+            --azul-escuro: #127080;
+            --azul-claro:  #E6F5F7;
+            --vermelho:    #D42B2B;
+            --branco:      #ffffff;
+            --cinza-bg:    #F4F8F9;
+            --texto:       #1A2B3C;
+            --texto-medio: #4A6070;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--texto);
+            line-height: 1.65;
+        }
+
+        /* ─── NAV ─── */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: var(--branco);
+            box-shadow: 0 2px 16px rgba(26,138,154,.12);
+            z-index: 999;
+        }
+
+        .nav-inner {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 14px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo img { height: 46px; }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 36px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--texto-medio);
+            font-size: .88rem;
+            font-weight: 600;
+            letter-spacing: .3px;
+            transition: color .2s;
+        }
+
+        .nav-links a:hover { color: var(--azul); }
+
+        .nav-cta {
+            background: var(--azul);
+            color: var(--branco) !important;
+            padding: 9px 22px;
+            border-radius: 50px;
+            transition: background .2s !important;
+        }
+
+        .nav-cta:hover { background: var(--azul-escuro) !important; color: var(--branco) !important; }
+
+        /* ─── HERO ─── */
+        .hero {
+            padding: 140px 28px 80px;
+            background: var(--branco);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -120px; right: -120px;
+            width: 500px; height: 500px;
+            border-radius: 50%;
+            background: var(--azul-claro);
+            z-index: 0;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -80px; left: -80px;
+            width: 340px; height: 340px;
+            border-radius: 50%;
+            background: #FDE8E8;
+            z-index: 0;
+        }
+
+        .hero-inner {
+            max-width: 1120px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text { flex: 1; }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--azul-claro);
+            color: var(--azul-escuro);
+            font-size: .78rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 50px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            line-height: 1.18;
+            color: var(--texto);
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span { color: var(--azul); }
+
+        .hero p {
+            font-size: 1.05rem;
+            color: var(--texto-medio);
+            max-width: 480px;
+            margin-bottom: 36px;
+        }
+
+        .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+
+        .btn-primary {
+            display: inline-block;
+            background: var(--azul);
+            color: var(--branco);
+            padding: 15px 36px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: .95rem;
+            text-decoration: none;
+            transition: background .2s, transform .2s, box-shadow .2s;
+            box-shadow: 0 4px 18px rgba(26,138,154,.35);
+        }
+
+        .btn-primary:hover {
+            background: var(--azul-escuro);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 26px rgba(26,138,154,.4);
+        }
+
+        .btn-outline {
+            display: inline-block;
+            border: 2px solid var(--azul);
+            color: var(--azul);
+            padding: 13px 34px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: .95rem;
+            text-decoration: none;
+            transition: all .2s;
+        }
+
+        .btn-outline:hover {
+            background: var(--azul);
+            color: var(--branco);
+        }
+
+        .hero-logo-box {
+            flex: 0 0 380px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-logo-box img {
+            width: 100%;
+            max-width: 380px;
+            drop-shadow: 0 8px 32px rgba(0,0,0,.08);
+        }
+
+        /* ─── SECTIONS COMUNS ─── */
+        section { padding: 88px 28px; }
+
+        .container { max-width: 1120px; margin: 0 auto; }
+
+        .sec-label {
+            display: inline-block;
+            font-size: .78rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--azul);
+            margin-bottom: 10px;
+        }
+
+        .sec-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--texto);
+            margin-bottom: 14px;
+            line-height: 1.2;
+        }
+
+        .sec-sub {
+            font-size: 1rem;
+            color: var(--texto-medio);
+            max-width: 580px;
+        }
+
+        .sec-header { margin-bottom: 52px; }
+
+        /* ─── SOBRE ─── */
+        #sobre { background: var(--cinza-bg); }
+
+        .sobre-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .sobre-text p {
+            color: var(--texto-medio);
+            margin-bottom: 18px;
+            font-size: .98rem;
+        }
+
+        .sobre-text strong { color: var(--texto); }
+
+        .sobre-quote {
+            margin-top: 28px;
+            background: var(--branco);
+            border-left: 5px solid var(--azul);
+            border-radius: 0 12px 12px 0;
+            padding: 20px 24px;
+            color: var(--azul-escuro);
+            font-weight: 600;
+            font-size: .95rem;
+            font-style: italic;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .stat-card {
+            background: var(--branco);
+            border-radius: 18px;
+            padding: 32px 24px;
+            text-align: center;
+            box-shadow: 0 2px 16px rgba(26,138,154,.08);
+        }
+
+        .stat-card .num {
+            display: block;
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--azul);
+            line-height: 1;
+        }
+
+        .stat-card .lbl {
+            display: block;
+            font-size: .82rem;
+            color: var(--texto-medio);
+            margin-top: 8px;
+        }
+
+        /* ─── PROGRAMAS ─── */
+        #programas { background: var(--branco); }
+
+        .programas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 24px;
+        }
+
+        .prog-card {
+            background: var(--branco);
+            border: 1.5px solid #E0EEF0;
+            border-radius: 18px;
+            padding: 32px 24px;
+            transition: transform .2s, box-shadow .2s, border-color .2s;
+        }
+
+        .prog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 32px rgba(26,138,154,.13);
+            border-color: var(--azul);
+        }
+
+        .prog-icon {
+            width: 52px; height: 52px;
+            background: var(--azul-claro);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin-bottom: 18px;
+        }
+
+        .prog-card h3 {
+            font-size: .95rem;
+            font-weight: 700;
+            color: var(--texto);
+            margin-bottom: 8px;
+        }
+
+        .prog-card p {
+            font-size: .84rem;
+            color: var(--texto-medio);
+            line-height: 1.55;
+        }
+
+        .prog-card.mais {
+            background: var(--azul);
+            border-color: var(--azul);
+        }
+
+        .prog-card.mais .prog-icon { background: rgba(255,255,255,.2); }
+
+        .prog-card.mais h3,
+        .prog-card.mais p { color: var(--branco); }
+
+        .prog-card.mais p { color: rgba(255,255,255,.8); }
+
+        .prog-badge {
+            display: inline-block;
+            font-size: .72rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+
+        .prog-badge.vagas {
+            background: #FDE8E8;
+            color: var(--vermelho);
+        }
+
+        .prog-badge.breve {
+            background: #E6F5F7;
+            color: var(--azul);
+        }
+
+        .prog-btn {
+            display: inline-block;
+            margin-top: 16px;
+            background: var(--azul);
+            color: var(--branco);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: .82rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background .2s, transform .2s;
+            width: 100%;
+            text-align: center;
+        }
+
+        .prog-btn:hover {
+            background: var(--azul-escuro);
+            transform: translateY(-2px);
+        }
+
+        .prog-btn.breve-btn {
+            background: #E6F5F7;
+            color: var(--azul);
+            cursor: default;
+        }
+
+        .prog-btn.breve-btn:hover { transform: none; }
+
+        /* ─── TRABALHE CONOSCO ─── */
+        #trabalhe {
+            background: linear-gradient(135deg, var(--azul) 0%, var(--azul-escuro) 100%);
+            text-align: center;
+        }
+
+        #trabalhe .sec-label { color: rgba(255,255,255,.65); }
+        #trabalhe .sec-title { color: var(--branco); }
+        #trabalhe .sec-sub  { color: rgba(255,255,255,.8); margin: 0 auto 40px; }
+
+        .btn-branco {
+            display: inline-block;
+            background: var(--branco);
+            color: var(--azul);
+            padding: 16px 48px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: transform .2s, box-shadow .2s;
+            box-shadow: 0 4px 20px rgba(0,0,0,.18);
+        }
+
+        .btn-branco:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 28px rgba(0,0,0,.22);
+        }
+
+        /* ─── CONTATO ─── */
+        #contato { background: var(--cinza-bg); text-align: center; }
+
+        .contato-cards {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .contato-card {
+            background: var(--branco);
+            border-radius: 18px;
+            padding: 36px 40px;
+            min-width: 210px;
+            box-shadow: 0 2px 16px rgba(26,138,154,.08);
+            transition: transform .2s;
+        }
+
+        .contato-card:hover { transform: translateY(-4px); }
+
+        .contato-card .ico {
+            font-size: 2.2rem;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .contato-card h3 {
+            font-size: .75rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--azul);
+            margin-bottom: 8px;
+        }
+
+        .contato-card a,
+        .contato-card span {
+            font-size: .95rem;
+            font-weight: 500;
+            color: var(--texto);
+            text-decoration: none;
+        }
+
+        .contato-card a:hover { color: var(--azul); }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background: var(--texto);
+            color: rgba(255,255,255,.6);
+            text-align: center;
+            padding: 36px 28px;
+            font-size: .84rem;
+        }
+
+        footer strong { color: var(--branco); }
+
+        footer p + p { margin-top: 6px; }
+
+        /* ─── GALERIA / CARROSSEL ─── */
+        #galeria { background: var(--cinza-bg); text-align: center; }
+
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            margin-top: 48px;
+            box-shadow: 0 8px 40px rgba(0,0,0,.14);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform .5s cubic-bezier(.4,0,.2,1);
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 480px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: .95;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,.92);
+            border: none;
+            width: 48px; height: 48px;
+            border-radius: 50%;
+            font-size: 1.6rem;
+            cursor: pointer;
+            color: var(--azul);
+            box-shadow: 0 2px 12px rgba(0,0,0,.18);
+            transition: all .2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-btn:hover { background: var(--azul); color: var(--branco); }
+        .carousel-btn.prev { left: 14px; }
+        .carousel-btn.next { right: 14px; }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+        }
+
+        .carousel-dot {
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.55);
+            border: none;
+            cursor: pointer;
+            transition: all .3s;
+            padding: 0;
+        }
+
+        .carousel-dot.active {
+            background: var(--branco);
+            width: 28px;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 640px) {
+            .carousel-slide { height: 240px; }
+            .carousel-btn { width: 36px; height: 36px; font-size: 1.2rem; }
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 900px) {
+            .hero-inner { flex-direction: column-reverse; gap: 32px; text-align: center; }
+            .hero h1 { font-size: 2rem; }
+            .hero p { margin: 0 auto 32px; }
+            .hero-btns { justify-content: center; }
+            .hero-logo-box { flex: none; }
+            .sobre-grid { grid-template-columns: 1fr; gap: 40px; }
+            .sec-title { font-size: 1.65rem; }
+        }
+
+        @media (max-width: 640px) {
+            .nav-links { display: none; }
+            section { padding: 64px 20px; }
+            .hero { padding: 110px 20px 60px; }
+            .hero h1 { font-size: 1.7rem; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <div class="nav-inner">
+        <a href="#inicio">
+            <img src="identidade-visual/logoCAPASS%20APROVADO.png" alt="CAPASS" class="nav-logo" style="height:46px;">
+        </a>
+        <ul class="nav-links">
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#programas">Programas</a></li>
+            <li><a href="#contato">Contato</a></li>
+            <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdoMbkRAQoXHrzUTtIRUj-0VInExCCnqDwGDKKMw9kZwipqKQ/viewform?usp=header" target="_blank" class="nav-cta">Trabalhe Conosco</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+    <div class="hero-inner container">
+        <div class="hero-text">
+            <span class="hero-badge">Ribeirão Preto e Região</span>
+            <h1>Inclusão que <span>transforma</span> vidas</h1>
+            <p>A CAPASS apoia pessoas com deficiência e neurodivergentes com programas de saúde, educação e desenvolvimento — porque todo ser humano merece dignidade e oportunidade.</p>
+            <div class="hero-btns">
+                <a href="#programas" class="btn-primary">Conheça nossos programas</a>
+                <a href="#sobre" class="btn-outline">Nossa história</a>
+            </div>
+        </div>
+        <div class="hero-logo-box">
+            <img src="identidade-visual/logoCAPASS%20APROVADO.png" alt="CAPASS – Casa de Apoio Pastor Antonio Silva Santana">
+        </div>
+    </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre">
+    <div class="container">
+        <div class="sec-header">
+            <span class="sec-label">Quem somos</span>
+            <h2 class="sec-title">Uma homenagem que<br>virou missão</h2>
+            <p class="sec-sub">Nascemos da fé, do amor ao próximo e do compromisso com a inclusão — honrando um legado que começou décadas atrás.</p>
+        </div>
+
+        <div class="sobre-grid">
+            <div class="sobre-text">
+                <p>A <strong>CAPASS</strong> — Casa de Apoio Pastor Antonio Silva Santana — é uma associação dedicada ao apoio de <strong>pessoas com deficiência e neurodivergentes</strong>, sediada em Ribeirão Preto e região.</p>
+                <p>Nosso nome é uma homenagem ao <strong>Pastor Antonio Silva Santana</strong>, um ícone da história da Igreja Evangélica Assembleia de Deus em Ribeirão Preto. Em 2026, o Pastor Santana completa <strong>94 anos de vida</strong> — e essa homenagem foi feita ainda em vida, para quem sempre mereceu ser celebrado.</p>
+                <p>Desde 2008, o Pastor Santana foi o grande incentivador do trabalho com pessoas surdas na IEADERP, tornando os cultos acessíveis em Língua Brasileira de Sinais. Uma semente de inclusão que cresceu e deu origem à CAPASS.</p>
+                <p>Iniciamos nossas atividades em <strong>13 de dezembro de 2024</strong>, com o compromisso de oferecer atendimento de qualidade, com cuidado, respeito e fé.</p>
+                <div class="sobre-quote">
+                    "Uma homenagem feita ainda em vida — ao homem que acreditou na inclusão quando poucos acreditavam."
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="num">2008</span>
+                    <span class="lbl">Início do trabalho com inclusão na IEADERP</span>
+                </div>
+                <div class="stat-card">
+                    <span class="num">7+</span>
+                    <span class="lbl">Programas e serviços ativos</span>
+                </div>
+                <div class="stat-card">
+                    <span class="num">Dez.<br>2024</span>
+                    <span class="lbl">Fundação da CAPASS</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- GALERIA -->
+<section id="galeria">
+    <div class="container">
+        <div class="sec-header">
+            <span class="sec-label">Conheça nossa casa</span>
+            <h2 class="sec-title">Nosso Espaço</h2>
+            <p class="sec-sub" style="margin:0 auto;">Um ambiente pensado para acolher, cuidar e transformar vidas.</p>
+        </div>
+
+        <div class="carousel">
+            <div class="carousel-track">
+                <div class="carousel-slide"><img src="fotos/foto%201.jpg" alt="Nosso Espaço 1"></div>
+                <div class="carousel-slide"><img src="fotos/foto%202.jpg" alt="Nosso Espaço 2"></div>
+                <div class="carousel-slide"><img src="fotos/foto%203.jpg" alt="Nosso Espaço 3"></div>
+                <div class="carousel-slide"><img src="fotos/foto%204.jpg" alt="Nosso Espaço 4"></div>
+                <div class="carousel-slide"><img src="fotos/foto%205.jpg" alt="Nosso Espaço 5"></div>
+                <div class="carousel-slide"><img src="fotos/foto%206.jpg" alt="Nosso Espaço 6"></div>
+                <div class="carousel-slide"><img src="fotos/foto%207.jpg" alt="Nosso Espaço 7"></div>
+                <div class="carousel-slide"><img src="fotos/foto%208.jpg" alt="Nosso Espaço 8"></div>
+                <div class="carousel-slide"><img src="fotos/foto%209.jpg" alt="Nosso Espaço 9"></div>
+                <div class="carousel-slide"><img src="fotos/foto%2010.jpg" alt="Nosso Espaço 10"></div>
+            </div>
+            <button class="carousel-btn prev">&#8249;</button>
+            <button class="carousel-btn next">&#8250;</button>
+            <div class="carousel-dots">
+                <button class="carousel-dot active"></button>
+                <button class="carousel-dot"></button>
+                <button class="carousel-dot"></button>
+                <button class="carousel-dot"></button>
+                <button class="carousel-dot"></button>
+                <button class="carousel-dot"></button>
+                <button class="carousel-dot"></button>
+                <button class="carousel-dot"></button>
+                <button class="carousel-dot"></button>
+                <button class="carousel-dot"></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROGRAMAS -->
+<section id="programas">
+    <div class="container">
+        <div class="sec-header">
+            <span class="sec-label">O que oferecemos</span>
+            <h2 class="sec-title">Nossos programas e serviços</h2>
+            <p class="sec-sub">Cada programa é pensado para promover autonomia, aprendizado e qualidade de vida para quem mais precisa.</p>
+        </div>
+
+        <div class="programas-grid">
+            <div class="prog-card">
+                <div class="prog-icon">🧠</div>
+                <span class="prog-badge vagas">Vagas limitadas</span>
+                <h3>Atendimento Psicológico</h3>
+                <p>Suporte emocional especializado para pessoas com deficiência e seus familiares.</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScDLt5jbIdJ7zbglegpwBgyf4mMEWiGFq8oQfNFhKijBEC_pw/viewform" target="_blank" class="prog-btn">Entrar na lista de espera →</a>
+            </div>
+            <div class="prog-card">
+                <div class="prog-icon">🏃</div>
+                <span class="prog-badge vagas">Vagas limitadas</span>
+                <h3>Fisioterapia</h3>
+                <p>Atendimento que promove mobilidade, bem-estar e qualidade de vida.</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSceEEfGuoX-PWzaKaYBEErd0UZplnwBrwlMUjpaZReIrcFmlA/viewform" target="_blank" class="prog-btn">Entrar na lista de espera →</a>
+            </div>
+            <div class="prog-card">
+                <div class="prog-icon">📚</div>
+                <span class="prog-badge vagas">Vagas limitadas</span>
+                <h3>Reforço Escolar e Alfabetização</h3>
+                <p>Aulas de apoio com metodologia adaptada às necessidades de cada aluno.</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScuyJm2r-s4Y5Z_5dtmukyA9mvpn-cMmZoT9cCcZQa6fQN1HQ/viewform" target="_blank" class="prog-btn">Entrar na lista de espera →</a>
+            </div>
+            <div class="prog-card">
+                <div class="prog-icon">🤟</div>
+                <span class="prog-badge vagas">Vagas limitadas</span>
+                <h3>Curso de Libras</h3>
+                <p>Aprenda Língua Brasileira de Sinais e contribua para uma sociedade mais inclusiva.</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScMNzKZQoQMuHsaeWY60kwnmnr9fyhLggFUNh-PSjYvA8ZUQQ/viewform" target="_blank" class="prog-btn">Entrar na lista de espera →</a>
+            </div>
+            <div class="prog-card">
+                <div class="prog-icon">🏥</div>
+                <span class="prog-badge vagas">Vagas limitadas</span>
+                <h3>Cuidados de Enfermagem</h3>
+                <p>Aferição de sinais vitais, curativos, orientações e acompanhamento de saúde.</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSd92u3pH9-C5XajXUWdg-yKXLC70FyNQ_mYNCcDiEJtzuwcUg/viewform" target="_blank" class="prog-btn">Entrar na lista de espera →</a>
+            </div>
+            <div class="prog-card">
+                <div class="prog-icon">💊</div>
+                <span class="prog-badge vagas">Vagas limitadas</span>
+                <h3>Orientação Farmacêutica</h3>
+                <p>Acompanhamento farmacêutico, orientação sobre medicamentos e adesão ao tratamento.</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeQzOOPhSAB13JwZWBCW7gjvaq2_cyjKHqpczS9-HRGKal60w/viewform" target="_blank" class="prog-btn">Entrar na lista de espera →</a>
+            </div>
+            <div class="prog-card">
+                <div class="prog-icon">🤝</div>
+                <span class="prog-badge vagas">Vagas limitadas</span>
+                <h3>Assistência Social</h3>
+                <p>Orientação sobre direitos, benefícios sociais e encaminhamentos para serviços públicos.</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSefBmGHylGOligdp4OUBQb4reyu1afGMdcM2rUvStv4l8wrhQ/viewform" target="_blank" class="prog-btn">Entrar na lista de espera →</a>
+            </div>
+            <div class="prog-card mais">
+                <div class="prog-icon">✨</div>
+                <h3>E muito mais...</h3>
+                <p>Aula de música, português para surdos e novos programas em desenvolvimento. Acompanhe nossas redes sociais!</p>
+                <a href="https://www.instagram.com/CAPASSRP" target="_blank" class="prog-btn" style="background:rgba(255,255,255,.2); margin-top:16px;">Seguir no Instagram →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TRABALHE CONOSCO -->
+<section id="trabalhe">
+    <div class="container">
+        <span class="sec-label">Faça parte</span>
+        <h2 class="sec-title">Trabalhe Conosco</h2>
+        <p class="sec-sub">Quer fazer parte de uma equipe que transforma vidas? Preencha nosso formulário e entraremos em contato.</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdoMbkRAQoXHrzUTtIRUj-0VInExCCnqDwGDKKMw9kZwipqKQ/viewform?usp=header" target="_blank" class="btn-branco">
+            Quero fazer parte →
+        </a>
+    </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+    <div class="container">
+        <div class="sec-header" style="text-align:center;">
+            <span class="sec-label">Fale com a gente</span>
+            <h2 class="sec-title">Contato</h2>
+            <p class="sec-sub" style="margin: 0 auto;">Estamos nas redes sociais. Mande sua mensagem, será um prazer atender você!</p>
+        </div>
+
+        <div class="contato-cards">
+            <div class="contato-card">
+                <span class="ico">📸</span>
+                <h3>Instagram</h3>
+                <a href="https://www.instagram.com/CAPASSRP" target="_blank">@capassrp</a>
+            </div>
+            <div class="contato-card">
+                <span class="ico">📍</span>
+                <h3>Localização</h3>
+                <span>Ribeirão Preto e região — SP</span>
+            </div>
+            <div class="contato-card">
+                <span class="ico">🌐</span>
+                <h3>Site</h3>
+                <span>redecapass.com.br</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p><strong>Rede CAPASS</strong> — Casa de Apoio Pastor Antonio Silva Santana</p>
+    <p>Ribeirão Preto e região · Fundada em 13/12/2024</p>
+    <p style="margin-top:14px;">© 2026 CAPASS. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+    const track = document.querySelector('.carousel-track');
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots   = document.querySelectorAll('.carousel-dot');
+    let current  = 0;
+    let timer;
+
+    function goTo(n) {
+        current = (n + slides.length) % slides.length;
+        track.style.transform = `translateX(-${current * 100}%)`;
+        dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    document.querySelector('.carousel-btn.prev').addEventListener('click', () => { goTo(current - 1); reset(); });
+    document.querySelector('.carousel-btn.next').addEventListener('click', () => { goTo(current + 1); reset(); });
+    dots.forEach((d, i) => d.addEventListener('click', () => { goTo(i); reset(); }));
+
+    // Swipe para mobile
+    let startX = 0;
+    track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
+    track.addEventListener('touchend',   e => {
+        const diff = startX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) { goTo(diff > 0 ? current + 1 : current - 1); reset(); }
+    });
+
+    function reset() {
+        clearInterval(timer);
+        timer = setInterval(() => goTo(current + 1), 4500);
+    }
+
+    goTo(0);
+    reset();
+</script>
+</body>
+</html>

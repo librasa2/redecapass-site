@@ -1,0 +1,12 @@
+# Arquivos de backup e zip
+*.zip
+Capass-*/
+
+# Arquivos de design (grande, não necessários para o site)
+identidade-visual/*.ai
+identidade-visual/*.pdf
+
+# Arquivos do sistema
+Thumbs.db
+.DS_Store
+desktop.ini
